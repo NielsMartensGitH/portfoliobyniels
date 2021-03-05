@@ -1,13 +1,96 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background-color: rgb(171, 171, 201)
+}
+
+
+.App{
+    max-width: 100%;
+    margin: 100px auto;
+    width: 500px;
+    height: 100px;
+    background-color:rgb(10, 10, 51);
+}
+
+.display{
+    font-family: "Rajdhani";
+    font-size: 45px;
+    padding: 10px 30px;
+    color: white;
+    background-color:  rgb(10, 10, 51) ;
+    text-align: right;
+    cursor: default;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    height: 80px;
+}
+
+
+.display .memory{
+    font-size: 25px;
+}
+
+.buttons{
+    
+    color: white;
+    font-family: "Rajdhani";
+    font-size: 50px;
+    font-weight:bolder;
+   
+    
+    
+}
+
+.button:hover{
+    color: rgb(10, 10, 51);
+    border: solid rgb(216, 197, 197);
+    border-width: 2px;
+}
+
+.grids{
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    text-align: center;
+    background-color:  rgb(10, 10, 51) ;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    cursor: default;
+    
+
+}
+
+.grids .ac{
+    grid-column: 1/3;
+}
+
+.grids .nul{
+    grid-column: 1/3
+}
+
+.grids .equal{
+    grid-column: 4/4;
+    grid-row: 4/6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+   
+}
+
+.button{
+    border: solid rgb(10, 10, 51);
+    border-width: 1px;
+    background-color: rgb(187, 66, 38);
+    
 }

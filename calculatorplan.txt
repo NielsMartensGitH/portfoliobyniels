@@ -1,0 +1,24 @@
+gebruik van CSS GRID 
+geen BUTTONS
+
+state met input en output keys
+
+in de output komt hetzelfde als de input tot dat men op "=" klikt
+
+we moeten onze input controleren met via regex en enkel bij true mag dez
+
+onze state wordt gereset naar de initieele waarde bij het klikken op AC
+
+component opsplitsing:
+
+
+APP met state en functies!
+BUTTONS bij onclick passen we functies toe die we als props kunnen pakken uit de APP COMPONENT
+DISPLAY , hier passen we toe wat we in de buttons element hebben uitgevoerd! HET RESULTAAT VAN DE STATE KOMT HIER IN!
+
+HOE PASSEN WE DE BEREKENING TOE?
+
+WE MOETEN DE NUMMERS, DECIMALEN , OPERATOREN  en IS GELIJK AAN TEKEN KUNNEN ZIEN IN DE INPUT! 
+OP BASIS VAN DEZE GEGEVENS IN DE INPUT MOETEN WE EEN BEREKENING MAKEN WAARVAN WE DE UITKOMST IN DE OUTPUT ZETTEN
+
+JAVASCRIPT DOET AUTOMATISCH BEREKENINGEN OP BASIS VAN GETALLEN EN OPERATOREN
