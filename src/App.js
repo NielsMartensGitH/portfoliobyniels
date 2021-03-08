@@ -15,9 +15,21 @@ function App() {
  const inputValue = (id) =>{
    setState({
      
-     arr: state.arr.concat(id),
+
+    arr: state.arr.concat(id),
      input: id,
      output: id
+     
+   })
+ }
+
+
+ const calculation = () =>{
+  let formula = state.arr.join("");
+  console.log(eval(formula))
+   setState({
+     arr: state.arr.concat,
+     input: eval(formula)
      
    })
  }
@@ -37,7 +49,7 @@ function App() {
           <Display state={state} />
         </div>
         <div className="buttons">
-          <Buttons inputValue={inputValue} clearValue={clearValue} state={state} />
+          <Buttons inputValue={inputValue} clearValue={clearValue} calculation={calculation} state={state} />
         </div>
         
     </div>

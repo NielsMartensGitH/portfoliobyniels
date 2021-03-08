@@ -1,4 +1,4 @@
-const Buttons = ({inputValue, clearValue}) => {
+const Buttons = ({inputValue, clearValue, calculation}) => {
 
 
 
@@ -9,7 +9,7 @@ const Buttons = ({inputValue, clearValue}) => {
     <div className="button ac" id="clear" onClick={clearValue}>AC</div>  
     
     <div className="button" id="subtract" onClick={() => inputValue("-") }>-</div>
-    <div className="button" id="multiply" onClick={() => inputValue("x") }>x</div>
+    <div className="button" id="multiply" onClick={() => inputValue("*") }>x</div>
   
 
     <div className="button" id="one" onClick={() => inputValue(1) }>1</div>
@@ -29,7 +29,7 @@ const Buttons = ({inputValue, clearValue}) => {
    
     
     <div className="button" id="decimal" onClick={() => inputValue(".") }>.</div>
-    <div className="button equal" id="equals">=</div>
+    <div className="button equal" id="equals" onClick={calculation}>=</div>
 
 
     
