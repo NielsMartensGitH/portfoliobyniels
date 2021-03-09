@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import Buttons from './Buttons'
-import Display from './Display'
 
-const regx = /^[0-9][.]*[0-9]*$/;
+
 
 
 
@@ -20,8 +19,8 @@ function App() {
 
 
 const inputValue = (i) =>{
+const numberAfterResult = /^[0-9-.*/+]+[=]{1}[0-9.\s]+$/g
 const invalidDecimal =/[0-9+-/*][.][0-9][.]*$/g
-  const number = i;
   const formula = state.formula+i
   if(invalidDecimal.test(state.currentNumber)){
     console.log("double")
@@ -29,7 +28,13 @@ setState({
   currentNumber: formula.replace(/\.$/,""),
   formula: formula.replace(/\.$/,"")
 })
-   
+  }
+
+else if(numberAfterResult.test(state.formula)){
+  clearValue()
+
+
+
   } else{
     setState({
       initialNumber: "",
@@ -49,8 +54,8 @@ setState({
 
 
 const operator = (symbol) =>{
-const regex = /^[0-9-\.*/+]+[=]{1}[0-9\.\s]+$/g
-  let formula = ""
+const regex = /^[0-9-.*/+]+[=]{1}[0-9.\s]+$/g
+  
   if(regex.test(state.formula)){
     let formula = state.currentNumber
     setState({
@@ -124,7 +129,7 @@ const regex = /^[0-9-\.*/+]+[=]{1}[0-9\.\s]+$/g
 }
 
 const calculation = () =>{
-  const regDouble = /^[0-9-*\./+]+[=]{1}[0-9\.\s]+$/g;
+  const regDouble = /^[0-9-*./+]+[=]{1}[0-9.\s]+$/g;
   const regex = /[+/*-]$/
   let result = ""
  if(regex.test(state.formula)){
@@ -165,10 +170,11 @@ console.log("not valid")
   return (
     <div className="App">
       <div className="display" >
-      <div id="display">{state.initialNumber}{state.formula}<div className="memory">{state.currentNumber}</div></div>
+      <div id="display">{state.initialNumber}{state.formula}</div>
         </div>
+        <div className="memory">{state.currentNumber}</div>
         <div className="buttons" >
-          <Buttons 
+          <Buttons
           clearValue={clearValue} 
           inputValue={inputValue} 
           calculation={calculation} 

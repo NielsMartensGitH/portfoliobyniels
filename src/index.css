@@ -29,12 +29,24 @@ body {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
-    height: 80px;
+    height: 40px;
+    max-height: 100%
 }
 
 
-.display .memory{
+.memory{
     font-size: 45px;
+    font-family: "Rajdhani";
+    padding: 10px 30px;
+    text-align: right;
+    background-color:  rgb(10, 10, 51) ;
+    color: white;
+    cursor: default;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    height: 40px;
 }
 
 .buttons{
