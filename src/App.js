@@ -3,42 +3,72 @@ import Buttons from './Buttons'
 import Display from './Display'
 
 
+
+
+
+
 function App() {
 
   const [state, setState] = useState({
-    arr: [],
-    input: "",
-    output: ""
+    initialNumber: 0,
+    previousNumber: "",
+    currentNumber: "",
+    operator: "",
+    formula: "",
+    fullNumber: "",
+    result: ""
   }) 
 
 
- const inputValue = (id) =>{
-   setState({
-     
+const inputValue = (i) =>{
+ 
+  const number = i;
+  const formula = state.formula+i
+  setState({
+    initialNumber: "",
+    currentNumber: number,
+    formula: formula
+    .replace("..", ".")
+    .replace(/^0/, "")
+  
+  })
+}
 
-    arr: state.arr.concat(id),
-     input: id,
-     output: id
-     
-   })
- }
 
 
- const calculation = () =>{
-  let formula = state.arr.join("");
-  console.log(eval(formula))
-   setState({
-     arr: state.arr.concat,
-     input: eval(formula)
-     
-   })
- }
+const operator = (symbol) =>{
+  const formula = state.formula+symbol;
+  setState({
+    currentNumber: symbol,
+    formula: formula
+    .replace("**", "*")
+    .replace("++", "+")
+    .replace("--", "-")
+    .replace("//", "/")
+  })
+}
+
+const calculation = () =>{
+ 
+   const result = eval(state.formula)
+  setState({
+    
+    currentNumber: "= " + state.formula,
+    formula: result.toString()
+  
+  
+  })  
+  
+}
+
 
  const clearValue = () =>{
    setState({
-     arr: [],
-     input: 0,
-     output: ""
+     initialNumber: 0,
+     previousNumber: "",
+     currentNumber: "",
+     operator: "",
+     formula: ""
    })
  }
 
@@ -49,7 +79,7 @@ function App() {
           <Display state={state} />
         </div>
         <div className="buttons">
-          <Buttons inputValue={inputValue} clearValue={clearValue} calculation={calculation} state={state} />
+          <Buttons clearValue={clearValue} inputValue={inputValue} calculation={calculation} state={state} operator={operator} />
         </div>
         
     </div>

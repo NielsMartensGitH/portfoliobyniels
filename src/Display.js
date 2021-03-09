@@ -1,7 +1,7 @@
 const Display = ({state}) => {
     return ( 
-        <div id="display">{state.arr}
-        <div className="memory">{state.input}</div>
+        <div id="display">{state.initialNumber}{state.formula}
+        <div className="memory">{state.currentNumber}</div>
         </div>
      );
 }
