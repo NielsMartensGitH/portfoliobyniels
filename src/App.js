@@ -3,10 +3,6 @@ import Buttons from './Buttons'
 import Display from './Display'
 
 
-
-
-
-
 function App() {
 
   const [state, setState] = useState({
@@ -45,21 +41,40 @@ const operator = (symbol) =>{
     .replace("++", "+")
     .replace("--", "-")
     .replace("//", "/")
+    .replace("*+", "+")
+    .replace("*/", "/")
+    .replace("+/", "/")
+    .replace("+*", "*")
+    .replace("-+", "+")
+    .replace("-*", "*")
+    .replace("-/", "/")
+    .replace("/+", "+")
+    .replace("/*", "*")
+
   })
 }
 
 const calculation = () =>{
- 
-   const result = eval(state.formula)
+  const regex = /[+/*-]$/
+  let result = ""
+ if(regex.test(state.formula)){
+  result = eval(state.formula.slice(0,-1))
   setState({
-    
-    currentNumber: "= " + state.formula,
+    currentNumber: state.formula.slice(0,-1) + "= " + result,
     formula: result.toString()
-  
-  
   })  
+
+ } else{
+   result = eval(state.formula)
+   setState({
+    currentNumber: state.formula + "= " + result,
+    formula: result.toString()
+  })  
+  }
+
   
 }
+
 
 
  const clearValue = () =>{
