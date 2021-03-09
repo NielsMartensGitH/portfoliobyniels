@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Buttons from './Buttons'
 import Display from './Display'
 
+const regx = /^[0-9][.]*[0-9]*$/;
+
 
 
 function App() {
@@ -18,18 +20,30 @@ function App() {
 
 
 const inputValue = (i) =>{
- 
+const invalidDecimal =/[0-9+-/*][.][0-9][.]*$/g
   const number = i;
   const formula = state.formula+i
-  setState({
-    initialNumber: "",
-    currentNumber: formula,
-    formula: formula
-    .replace("..", ".")
-    .replace(/^0/, "")
+  if(invalidDecimal.test(state.currentNumber)){
+    console.log("double")
+setState({
+  currentNumber: formula.replace(/\.$/,""),
+  formula: formula.replace(/\.$/,"")
+})
+   
+  } else{
+    setState({
+      initialNumber: "",
+      currentNumber: formula
+      .replace("..", "."),
+      formula: formula
+      .replace("..", ".")
+      .replace(/^0/, "")
+      
+      
     
+    })
+  }
   
-  })
 }
 
 
@@ -150,11 +164,16 @@ console.log("not valid")
 
   return (
     <div className="App">
-      <div className="display">
-          <Display state={state} />
+      <div className="display" >
+      <div id="display">{state.initialNumber}{state.formula}<div className="memory">{state.currentNumber}</div></div>
         </div>
-        <div className="buttons">
-          <Buttons clearValue={clearValue} inputValue={inputValue} calculation={calculation} state={state} operator={operator} />
+        <div className="buttons" >
+          <Buttons 
+          clearValue={clearValue} 
+          inputValue={inputValue} 
+          calculation={calculation} 
+          state={state} 
+          operator={operator} />
         </div>
         
     </div>
