@@ -3,6 +3,7 @@ import Buttons from './Buttons'
 import Display from './Display'
 
 
+
 function App() {
 
   const [state, setState] = useState({
@@ -22,10 +23,11 @@ const inputValue = (i) =>{
   const formula = state.formula+i
   setState({
     initialNumber: "",
-    currentNumber: number,
+    currentNumber: formula,
     formula: formula
     .replace("..", ".")
     .replace(/^0/, "")
+    
   
   })
 }
@@ -33,9 +35,46 @@ const inputValue = (i) =>{
 
 
 const operator = (symbol) =>{
-  const formula = state.formula+symbol;
+const regex = /^[0-9-\.*/+]+[=]{1}[0-9\.\s]+$/g
+  let formula = ""
+  if(regex.test(state.formula)){
+    let formula = state.currentNumber
+    setState({
+      formula: formula+symbol
+      .replace("**", "*")
+      .replace("++", "+")
+      .replace("--", "-")
+      .replace("//", "/")
+      .replace("*+", "+")
+      .replace("*/", "/")
+      .replace("+/", "/")
+      .replace("+*", "*")
+      .replace("-+", "+")
+      .replace("-*", "*")
+      .replace("-/", "/")
+      .replace("/+", "+")
+      .replace("/*", "*"),
+      currentNumber: formula
+      .replace("**", "*")
+      .replace("++", "+")
+      .replace("--", "-")
+      .replace("//", "/")
+      .replace("*+", "+")
+      .replace("*/", "/")
+      .replace("+/", "/")
+      .replace("+*", "*")
+      .replace("-+", "+")
+      .replace("-*", "*")
+      .replace("-/", "/")
+      .replace("/+", "+")
+      .replace("/*", "*")
+     
+  
+    })
+  } else {
+  let formula = state.formula+symbol;
+
   setState({
-    currentNumber: symbol,
     formula: formula
     .replace("**", "*")
     .replace("++", "+")
@@ -49,26 +88,47 @@ const operator = (symbol) =>{
     .replace("-*", "*")
     .replace("-/", "/")
     .replace("/+", "+")
+    .replace("/*", "*"),
+    currentNumber: formula
+    .replace("**", "*")
+    .replace("++", "+")
+    .replace("--", "-")
+    .replace("//", "/")
+    .replace("*+", "+")
+    .replace("*/", "/")
+    .replace("+/", "/")
+    .replace("+*", "*")
+    .replace("-+", "+")
+    .replace("-*", "*")
+    .replace("-/", "/")
+    .replace("/+", "+")
     .replace("/*", "*")
+   
 
   })
 }
+}
 
 const calculation = () =>{
+  const regDouble = /^[0-9-*\./+]+[=]{1}[0-9\.\s]+$/g;
   const regex = /[+/*-]$/
   let result = ""
  if(regex.test(state.formula)){
   result = eval(state.formula.slice(0,-1))
   setState({
-    currentNumber: state.formula.slice(0,-1) + "= " + result,
-    formula: result.toString()
+    formula: state.formula.slice(0,-1) + "= " + result,
+    currentNumber: result.toString()
   })  
-
- } else{
+ 
+ } 
+ else if(regDouble.test(state.formula)){
+console.log("not valid")
+ }
+ else{
    result = eval(state.formula)
    setState({
-    currentNumber: state.formula + "= " + result,
-    formula: result.toString()
+    formula: state.formula + "= " + result,
+    currentNumber: result.toString()
   })  
   }
 

@@ -19,7 +19,7 @@ body {
 
 .display{
     font-family: "Rajdhani";
-    font-size: 45px;
+    font-size: 25px;
     padding: 10px 30px;
     color: white;
     background-color:  rgb(10, 10, 51) ;
@@ -34,7 +34,7 @@ body {
 
 
 .display .memory{
-    font-size: 25px;
+    font-size: px;
 }
 
 .buttons{
