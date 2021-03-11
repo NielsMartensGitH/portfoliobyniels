@@ -19,7 +19,7 @@ body {
 
 .display{
     font-family: "Rajdhani";
-    font-size: 25px;
+    font-size: 45px;
     padding: 10px 30px;
     color: white;
     background-color:  rgb(10, 10, 51) ;
@@ -35,12 +35,12 @@ body {
 
 
 .memory{
-    font-size: 45px;
+    font-size: 40px;
     font-family: "Rajdhani";
     padding: 10px 30px;
     text-align: right;
     background-color:  rgb(10, 10, 51) ;
-    color: white;
+    color: yellow;
     cursor: default;
     -webkit-user-select: none; /* Safari */        
     -moz-user-select: none; /* Firefox */
