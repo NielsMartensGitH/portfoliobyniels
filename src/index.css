@@ -1,3 +1,7 @@
+
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
 *{
     margin: 0;
@@ -5,15 +9,42 @@
 }
 
 body {
-    background-color: rgb(171, 171, 201)
+    background-color: rgb(171, 171, 201);
+    
 }
 
+/* navbar */
 
-.App{
+
+.navbar{
+    background-color: white;
+    font-family: "Rajdhani";
+   
+
+}
+
+.navbar li{
+    list-style-type: none;
+    font-size: 22px;
+    margin-top: 5px;
+
+}
+
+/* homepage */
+
+.homepage{
+    background-color: rgb(191, 192, 238);
+    font-family: "Rajdhani";
+    text-align: center;
+}
+
+/* Calculator */
+
+.calculator{
     max-width: 100%;
-    margin: 100px auto;
+    margin: 25px auto;
     width: 500px;
-    height: 100px;
+    height: 80px;
     background-color:rgb(10, 10, 51);
 }
 
@@ -29,31 +60,31 @@ body {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
-    height: 40px;
+    height: 45px;
     max-height: 100%
 }
 
 
 .memory{
-    font-size: 40px;
+    font-size: 25px;
     font-family: "Rajdhani";
-    padding: 10px 30px;
+    padding: 15px 15px;
     text-align: right;
     background-color:  rgb(10, 10, 51) ;
-    color: yellow;
+    color: rgb(211, 211, 167);
     cursor: default;
     -webkit-user-select: none; /* Safari */        
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
-    height: 40px;
+    height: 60px;
 }
 
 .buttons{
     
     color: white;
     font-family: "Rajdhani";
-    font-size: 50px;
+    font-size: 45px;
     font-weight:bolder;
    
     
@@ -106,3 +137,79 @@ body {
     background-color: rgb(187, 66, 38);
     
 }
+
+.designer{
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(109, 27, 27);
+}
+
+.name{
+    text-align: center;
+    font-size: 25px;
+}
+
+/* Clock */
+
+.clock-main{
+    background-color: rgb(164, 206, 158);
+    height: 90vh;
+    max-height: 1200px;
+    text-align: center;
+    color: rgb(64, 64, 65);
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    cursor: default;
+}
+
+.clock-title{
+  
+    font-size: 50px;
+}
+
+.clock-controls{
+    margin: 40px auto;
+
+}
+
+.control-box{
+
+    
+    font-size: 25px;
+    font-size: 50px;
+}
+
+.control-box i{
+    color: black;
+}
+
+
+.clock-timer{
+background-color: rgb(242, 210, 198);
+   margin: 30px auto;
+   border: solid;
+   border-radius: 50px;;
+   width: 500px;
+   max-width: 100%
+}
+
+.clock-icon{
+    color: black;
+}
+
+.clock-icon:hover{
+    color: rgb(63, 60, 60);
+}
+
+.clock-timer .clock-display{
+    font-size: 100px;
+    color: black;
+}
+
+.clock-player{
+    font-size: 50px;;
+}
+
+

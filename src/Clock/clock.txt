@@ -1,0 +1,28 @@
+element met id="break-label" 
+- met string Break Length 
+- met klikbaar element id="break-decrement"  => break-length value vermeerdert met 1 mag nooit groter dan 60 zijn
+- element met id="break-length" met display die standaard op 5 staat
+- met klikbaar element id="break-increment" => break-length value vermindert met 1 mag nooit gelijk of kleiner dan 0 zijn
+
+element met id="session-label" 
+- met string Session Length 
+- met klikbaar element id="session-decrement" => session-length value vermindert met 1 en ook de mm (minuten) van time-left value mag nooit
+groter dan 60 zijn
+- element met id="session-length" met display die standaard op 25 staat
+- met klikbaar element id="session-increment" => session-length value vermeerdert met 1 en ook de mm (minuten) van time-left value 
+mag nooit gelijk of kleiner dan 0 zijn
+
+element met id="timer-label" met string "session" , string verandert in "break" als timer op 00:00 komt en een nieuwe countdown begint met
+de waarde in break-length , de string blijft hier op "break staan
+als de break timer is afgelopen komt er weer de sessie timer met de waarde van de session-length en string "Session"
+ELKE KEER ALS DE COUNTDOWN ZERO WORDT MOET ER EEN HTML5 AUDIO TAG GEACTIVEERD WORDEN VOOR DE BEEP (AUDIO MOET 1 SECOND OF LANGER DUREN)
+AUDIO ELEMENT HEEFT id="beep" en moet onmiddelijk stoppen als op RESET wordt geklikt
+
+element met id="time-left" met value displayed in mm:ss , 
+    de display wordt elke 1000ms gewijzigd als de timer loopt !! 60bpm dus, 
+    als de timer gepauzeerd wordt en ik klik op start-stop dan gaat deze verder van waar hij gepauzeerd werd
+
+klikbaar element met id="start_stop" , als ik hier op klik zal timer (time-left) lopen vanaf de value die displayed wordt in session-length
+
+klikbaar element met id="reset"
+    zorgt dat alles wordt gereset , inclusief de break en session values
