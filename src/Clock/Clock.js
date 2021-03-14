@@ -8,9 +8,10 @@ const [state, setState] = useState({
     break: 5,
     session: 25,
     second: "00",
-    minute: "25",
+    minute: 25,
     isActive: false,
-    counter: 1500
+    counter: 1500,
+    breakcounter: 300
 })
 
 
@@ -29,8 +30,23 @@ useEffect(() =>{
             setState(prevState =>{return{...prevState, minute: computedMinute}});
 
             setState(prevState =>{return{...prevState, counter: state.counter -1}});
-        }, 1000)
+        }, 10)
     }
+    else if (state.isActive && state.counter === 0 && state.breakcounter >=0){
+        intervalId = setInterval(() =>{
+            const secondCounter = state.breakcounter % 60;
+            const minuteCounter = Math.floor(state.breakcounter / 60);
+
+            const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}`: secondCounter;
+            const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}`: minuteCounter;
+
+            setState(prevState =>{return{...prevState, second: computedSecond}});
+            setState(prevState =>{return{...prevState, minute: computedMinute}});
+
+            setState(prevState =>{return{...prevState, counter: state.breakcounter -1}});
+        }, 10)
+    }
+
 
   
 
@@ -50,21 +66,24 @@ const stopTimer =() =>{
 }
 
 const incrementSession = ()=>{
+    if(state.minute >0 && state.minute < 60 && state.isActive === false){
     setState(prevState =>{
-        return{...prevState, session: state.session+1}
-        
+        return{...prevState, session: state.session+1, minute: state.minute+1, counter: state.counter+60, second: "00"}
+       
     })
-    
+}
     
    
 }
 
 const decrementSession = ()=>{
+    if(state.minute >1 && state.minute <= 60 && state.isActive === false){
     setState(prevState =>{
-        return{...prevState, session: state.session-1}
+        return{...prevState, session: state.session-1, minute: state.minute-1, counter: state.counter-60, second: "00"}
     
         
     })
+}
     
 }
 
