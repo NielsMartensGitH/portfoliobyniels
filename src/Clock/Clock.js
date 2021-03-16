@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react'
 import Controls from './Controls'
 import Timer from './Timer'
@@ -42,6 +43,11 @@ useEffect(() =>{
             setSecond(computedSecond)
             setMinute(computedMinute)
             setSessionCount(sessionCount-1)
+
+            if(sessionCount === 60){
+                document.getElementById("time-left").style.color = "red";
+            }
+
             if(sessionCount === 0){
                 setBreakActive(!breakActive)
                 setSessionActive(!sessionActive)
@@ -49,11 +55,13 @@ useEffect(() =>{
                 setBreakCount(breakLength*60)
                 setBreakSwitch("on")
                 setSessionSwitch("off")
-                const audio = new Audio("250629__kwahmah-02__alarm1.mp3");
+                const audio = new Audio("https://static.wixstatic.com/mp3/9f0000_03223f6729cd47df9ee229f18c9c1227.mp3");
+                audio.loop = false;
                 audio.play();
+                document.getElementById("time-left").style.color = "black";
                 
             }
-        }, 1000)
+        }, 10)
     }
 
     return () => clearInterval(intervalId);
@@ -74,6 +82,9 @@ useEffect(() =>{
             setSecond(computedSecond)
             setMinute(computedMinute)
             setBreakCount(breakCount-1)
+            if(sessionCount === 60){
+                document.getElementById("time-left").style.color = "red";
+            }
             if(breakCount === 0){
                 setSessionActive(!sessionActive)
                 setBreakActive(!breakActive)
@@ -81,9 +92,13 @@ useEffect(() =>{
                 setSessionCount(sessionLength*60)
                 setBreakSwitch("off")
                 setSessionSwitch("on")
+                const audio = new Audio("https://static.wixstatic.com/mp3/9f0000_03223f6729cd47df9ee229f18c9c1227.mp3");
+                audio.loop = false;
+                audio.play();
+                
                 
             }
-        }, 1000)
+        }, 10)
     }
 
     return () => clearInterval(intervalId);
@@ -93,14 +108,12 @@ const incrementSession = ()=>{
     if(sessionLength >=9 && sessionLength <60 && sessionActive === false && sessionSwitch==="on"){
     setZero("")
     setMinute(minute+1)
-    setSecond("00")
     setSessionLength(minute+1)
     setSessionCount(sessionCount+60)
     }
     else if(sessionLength >=1 && sessionLength <=11 && sessionActive === false && sessionSwitch==="on"){
     setZero("0")
     setMinute(Number(minute)+1)
-    setSecond("00")
     setSessionLength(Number(minute)+1)
     setSessionCount(sessionCount+60)
     }
@@ -115,14 +128,12 @@ const decrementSession = ()=>{
     if(sessionLength >=11 && sessionLength <= 60 && sessionActive === false && sessionSwitch==="on"){
     setZero("")
     setMinute(minute-1)
-    setSecond("00")
     setSessionLength(minute-1)
     setSessionCount(sessionCount-60)
     }
     else if(sessionLength >1 && sessionLength <=10 && sessionActive === false && sessionSwitch==="on"){
         setZero("0")
         setMinute(minute-1)
-        setSecond("00")
         setSessionLength(minute-1)
         setSessionCount(sessionCount-60)
     }
@@ -137,14 +148,12 @@ const incrementBreak = ()=>{
     if(breakLength >=9 && breakLength <60 && breakActive === false && breakSwitch==="on"){
     setZero("")
     setMinute(Number(minute)+1)
-    setSecond("00")
     setBreakLength(Number(minute)+1)
     setBreakCount(breakCount+60)
     }
     else if(breakLength >=1 && breakLength <=11 && breakActive === false && breakSwitch==="on"){
     setZero("0")
     setMinute(Number(minute)+1)
-    setSecond("00")
     setBreakLength(Number(minute)+1)
     setBreakCount(breakCount+60)
     }
@@ -228,3 +237,4 @@ const handleClick = () =>{
 }
 
 export default Clock;
+
