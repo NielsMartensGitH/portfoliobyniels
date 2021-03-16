@@ -61,7 +61,7 @@ useEffect(() =>{
                 document.getElementById("time-left").style.color = "black";
                 
             }
-        }, 10)
+        }, 1000)
     }
 
     return () => clearInterval(intervalId);
@@ -98,7 +98,7 @@ useEffect(() =>{
                 
                 
             }
-        }, 10)
+        }, 1000)
     }
 
     return () => clearInterval(intervalId);
