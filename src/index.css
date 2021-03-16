@@ -11,6 +11,7 @@
 body {
     background-color: rgb(171, 171, 201);
     
+    
 }
 
 /* navbar */
@@ -26,7 +27,7 @@ body {
 .navbar li{
     list-style-type: none;
     font-size: 22px;
-    margin-top: 5px;
+    margin-top: 0px;
 
 }
 
@@ -177,8 +178,9 @@ body {
 .control-box{
 
     
-    font-size: 25px;
+
     font-size: 50px;
+    margin: 5px auto;
 }
 
 .control-box i{
@@ -188,7 +190,7 @@ body {
 
 .clock-timer{
 background-color: rgb(242, 210, 198);
-   margin: 30px auto;
+   margin: 5px auto;
    border: solid;
    border-radius: 50px;;
    width: 500px;

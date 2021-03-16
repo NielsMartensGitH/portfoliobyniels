@@ -1,7 +1,7 @@
 function Controls (props){
 
     return (
-        <div className="clock-controls row justify-content-center bg-light">
+        <div className="clock-controls row justify-content-center bg-light container">
 
                 <div className="break col-sm-5" id="break-label">
                     <h2>Break Length</h2>

@@ -211,7 +211,7 @@ const handleClick = () =>{
 
     return(
         
-            <div className="clock-main">
+            <div className="clock-main container-fluid">
                <h1 className="clock-title">25+5 Clock</h1>
               <Controls 
               breaklength={breakLength} 
